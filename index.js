@@ -1,6 +1,6 @@
 const request = require('request');
 const parseString = require('xml2js').parseString;
-const telnet = require('telnet-client');
+const { Telnet } = require('telnet-client');
 
 /* Include lib */
 const discover = require('./lib/discover');
@@ -576,7 +576,7 @@ class receiver {
 	 * Setup Telnet connection if no HTML control is possible.
 	 */
 	connectTelnet() {
-		this.telnetConnection = new telnet();
+		this.telnetConnection = new Telnet();
 
 		this.telnetConnection.on('connect', () => {
             this.connected = true;
